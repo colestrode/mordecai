@@ -1,3 +1,4 @@
+import type { Session } from "next-auth";
 import { auth } from "@/app/(auth)/auth";
 import type { ArtifactKind } from "@/components/artifact";
 import {
@@ -18,11 +19,7 @@ export async function GET(request: Request) {
     ).toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("unauthorized:document").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const documents = await getDocumentsById({ id });
 
@@ -50,11 +47,7 @@ export async function POST(request: Request) {
     ).toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("not_found:document").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const {
     content,
@@ -103,11 +96,7 @@ export async function DELETE(request: Request) {
     ).toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("unauthorized:document").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const documents = await getDocumentsById({ id });
 

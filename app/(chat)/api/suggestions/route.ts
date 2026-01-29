@@ -1,3 +1,4 @@
+import type { Session } from "next-auth";
 import { auth } from "@/app/(auth)/auth";
 import { getSuggestionsByDocumentId } from "@/lib/db/queries";
 import { ChatSDKError } from "@/lib/errors";
@@ -13,11 +14,7 @@ export async function GET(request: Request) {
     ).toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("unauthorized:suggestions").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const suggestions = await getSuggestionsByDocumentId({
     documentId,

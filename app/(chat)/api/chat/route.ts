@@ -8,6 +8,7 @@ import {
   streamText,
 } from "ai";
 import { after } from "next/server";
+import type { Session } from "next-auth";
 import { createResumableStreamContext } from "resumable-stream";
 import { auth, type UserType } from "@/app/(auth)/auth";
 import { entitlementsByUserType } from "@/lib/ai/entitlements";
@@ -62,11 +63,7 @@ export async function POST(request: Request) {
     const { id, message, messages, selectedChatModel, selectedVisibilityType } =
       requestBody;
 
-    const session = await auth();
-
-    if (!session?.user) {
-      return new ChatSDKError("unauthorized:chat").toResponse();
-    }
+    const session = (await auth()) as Session;
 
     const userType: UserType = session.user.type;
 
@@ -270,11 +267,7 @@ export async function DELETE(request: Request) {
     return new ChatSDKError("bad_request:api").toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("unauthorized:chat").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const chat = await getChatById({ id });
 

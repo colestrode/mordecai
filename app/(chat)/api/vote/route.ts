@@ -1,3 +1,4 @@
+import type { Session } from "next-auth";
 import { auth } from "@/app/(auth)/auth";
 import { getChatById, getVotesByChatId, voteMessage } from "@/lib/db/queries";
 import { ChatSDKError } from "@/lib/errors";
@@ -13,11 +14,7 @@ export async function GET(request: Request) {
     ).toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("unauthorized:vote").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const chat = await getChatById({ id: chatId });
 
@@ -49,11 +46,7 @@ export async function PATCH(request: Request) {
     ).toResponse();
   }
 
-  const session = await auth();
-
-  if (!session?.user) {
-    return new ChatSDKError("unauthorized:vote").toResponse();
-  }
+  const session = (await auth()) as Session;
 
   const chat = await getChatById({ id: chatId });
 

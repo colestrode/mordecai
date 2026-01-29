@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import { guestRegex, isDevelopmentEnvironment } from "./lib/constants";
+import { ChatSDKError } from "./lib/errors";
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -23,6 +24,12 @@ export async function proxy(request: NextRequest) {
     secureCookie: !isDevelopmentEnvironment,
   });
 
+  // For API routes: return 401 if not authenticated (fail-secure)
+  if (pathname.startsWith("/api") && !token) {
+    return new ChatSDKError("unauthorized:chat").toResponse();
+  }
+
+  // For browser routes: redirect to guest auth if not authenticated
   if (!token) {
     const redirectUrl = encodeURIComponent(request.url);
 
