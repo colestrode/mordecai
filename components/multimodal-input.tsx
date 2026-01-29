@@ -445,7 +445,7 @@ function PureAttachmentsButton({
 
   return (
     <Button
-      className="aspect-square h-8 rounded-lg p-1 transition-shadow hover:glow-red"
+      className="aspect-square h-8 rounded-xl p-1 transition-shadow hover:glow-red"
       data-testid="attachments-button"
       disabled={status !== "ready" || isReasoningModel}
       onClick={(event) => {
