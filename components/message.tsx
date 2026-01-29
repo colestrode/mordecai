@@ -267,7 +267,7 @@ const PurePreviewMessage = ({
               if (part.output && "error" in part.output) {
                 return (
                   <div
-                    className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-500 dark:bg-red-950/50"
+                    className="rounded-lg border border-red-200 bg-red-950/50 p-4 text-red-500"
                     key={toolCallId}
                   >
                     Error creating document: {String(part.output.error)}
@@ -290,7 +290,7 @@ const PurePreviewMessage = ({
               if (part.output && "error" in part.output) {
                 return (
                   <div
-                    className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-500 dark:bg-red-950/50"
+                    className="rounded-lg border border-red-200 bg-red-950/50 p-4 text-red-500"
                     key={toolCallId}
                   >
                     Error updating document: {String(part.output.error)}

@@ -4,89 +4,49 @@
 /* include utility classes in streamdown */
 @source "../node_modules/streamdown/dist/index.js";
 
-/* custom variant for setting dark mode programmatically */
-@custom-variant dark (&:is(.dark, .dark *));
-
 /* include plugins */
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
 
-/* define design tokens (light mode) - Manager's Mark Style Guide */
+/* define design tokens - Manager's Mark Style Guide (Dark Mode Only) */
 :root {
-  --background: hsl(0 0% 90%);              /* System White */
-  --foreground: hsl(0 0% 0%);               /* Void Black */
-  --card: hsl(0 0% 85%);
-  --card-foreground: hsl(0 0% 0%);
-  --popover: hsl(0 0% 85%);
-  --popover-foreground: hsl(0 0% 0%);
-  --primary: hsl(0 100% 50%);               /* System Red */
-  --primary-foreground: hsl(0 0% 0%);
-  --secondary: hsl(0 0% 80%);
-  --secondary-foreground: hsl(0 0% 0%);
-  --muted: hsl(0 0% 80%);
-  --muted-foreground: hsl(0 0% 50%);        /* Concrete Grey */
-  --accent: hsl(0 100% 50%);                /* System Red */
-  --accent-foreground: hsl(0 0% 0%);
-  --destructive: hsl(0 100% 50%);           /* System Red */
-  --destructive-foreground: hsl(0 0% 90%);
-  --border: hsl(0 0% 50%);                  /* Concrete Grey */
-  --input: hsl(0 0% 80%);
-  --ring: hsl(0 100% 50%);                  /* System Red */
-  --chart-1: hsl(0 100% 50%);               /* System Red */
+  --background: hsl(0 0% 0%); /* Void Black */
+  --foreground: hsl(0 0% 90%); /* System White */
+  --card: hsl(0 0% 10%); /* Deep Charcoal */
+  --card-foreground: hsl(0 0% 90%); /* System White */
+  --popover: hsl(0 0% 10%); /* Deep Charcoal */
+  --popover-foreground: hsl(0 0% 90%); /* System White */
+  --primary: hsl(0 100% 50%); /* System Red */
+  --primary-foreground: hsl(0 0% 0%); /* Void Black */
+  --secondary: hsl(0 0% 10%); /* Deep Charcoal */
+  --secondary-foreground: hsl(0 0% 90%); /* System White */
+  --muted: hsl(0 0% 10%); /* Deep Charcoal */
+  --muted-foreground: hsl(0 0% 50%); /* Concrete Grey */
+  --accent: hsl(0 100% 50%); /* System Red */
+  --accent-foreground: hsl(0 0% 0%); /* Void Black */
+  --destructive: hsl(0 100% 50%); /* System Red */
+  --destructive-foreground: hsl(0 0% 90%); /* System White */
+  --border: hsl(0 0% 10%); /* Deep Charcoal */
+  --input: hsl(0 0% 10%); /* Deep Charcoal */
+  --ring: hsl(0 100% 50%); /* System Red */
+  --chart-1: hsl(0 100% 50%); /* System Red */
   --chart-2: hsl(0 0% 50%);
   --chart-3: hsl(0 0% 30%);
   --chart-4: hsl(0 100% 40%);
   --chart-5: hsl(0 100% 60%);
-  --sidebar-background: hsl(0 0% 85%);
-  --sidebar-foreground: hsl(0 0% 10%);
-  --sidebar-primary: hsl(0 100% 50%);       /* System Red */
+  --sidebar-background: hsl(0 0% 0%); /* Void Black */
+  --sidebar-foreground: hsl(0 0% 90%); /* System White */
+  --sidebar-primary: hsl(0 100% 50%); /* System Red */
   --sidebar-primary-foreground: hsl(0 0% 0%);
-  --sidebar-accent: hsl(0 0% 80%);
-  --sidebar-accent-foreground: hsl(0 0% 0%);
-  --sidebar-border: hsl(0 0% 50%);          /* Concrete Grey */
-  --sidebar-ring: hsl(0 100% 50%);          /* System Red */
+  --sidebar-accent: hsl(0 0% 10%); /* Deep Charcoal */
+  --sidebar-accent-foreground: hsl(0 0% 90%);
+  --sidebar-border: hsl(0 0% 10%); /* Deep Charcoal */
+  --sidebar-ring: hsl(0 100% 50%); /* System Red */
   /* border radius unit - sharp corners per style guide */
   --radius: 0;
-  --sidebar: hsl(0 0% 85%);
+  --sidebar: hsl(0 0% 0%); /* Void Black */
   /* neon glow effect */
-  --glow-red: 0 0 10px #FF0000, 0 0 20px #FF0000;
-}
-
-/* define design tokens (dark mode) - Manager's Mark Style Guide */
-.dark {
-  --background: hsl(0 0% 0%);               /* Void Black */
-  --foreground: hsl(0 0% 90%);              /* System White */
-  --card: hsl(0 0% 10%);                    /* Deep Charcoal */
-  --card-foreground: hsl(0 0% 90%);         /* System White */
-  --popover: hsl(0 0% 10%);                 /* Deep Charcoal */
-  --popover-foreground: hsl(0 0% 90%);      /* System White */
-  --primary: hsl(0 100% 50%);               /* System Red */
-  --primary-foreground: hsl(0 0% 0%);       /* Void Black */
-  --secondary: hsl(0 0% 10%);               /* Deep Charcoal */
-  --secondary-foreground: hsl(0 0% 90%);    /* System White */
-  --muted: hsl(0 0% 10%);                   /* Deep Charcoal */
-  --muted-foreground: hsl(0 0% 50%);        /* Concrete Grey */
-  --accent: hsl(0 100% 50%);                /* System Red */
-  --accent-foreground: hsl(0 0% 0%);        /* Void Black */
-  --destructive: hsl(0 100% 50%);           /* System Red */
-  --destructive-foreground: hsl(0 0% 90%);  /* System White */
-  --border: hsl(0 0% 10%);                  /* Deep Charcoal */
-  --input: hsl(0 0% 10%);                   /* Deep Charcoal */
-  --ring: hsl(0 100% 50%);                  /* System Red */
-  --chart-1: hsl(0 100% 50%);               /* System Red */
-  --chart-2: hsl(0 0% 50%);
-  --chart-3: hsl(0 0% 30%);
-  --chart-4: hsl(0 100% 40%);
-  --chart-5: hsl(0 100% 60%);
-  --sidebar-background: hsl(0 0% 0%);       /* Void Black */
-  --sidebar-foreground: hsl(0 0% 90%);      /* System White */
-  --sidebar-primary: hsl(0 100% 50%);       /* System Red */
-  --sidebar-primary-foreground: hsl(0 0% 0%);
-  --sidebar-accent: hsl(0 0% 10%);          /* Deep Charcoal */
-  --sidebar-accent-foreground: hsl(0 0% 90%);
-  --sidebar-border: hsl(0 0% 10%);          /* Deep Charcoal */
-  --sidebar-ring: hsl(0 100% 50%);          /* System Red */
-  --sidebar: hsl(0 0% 0%);                  /* Void Black */
+  --glow-red: 0 0 10px #ff0000, 0 0 20px #ff0000;
 }
 
 /* define theme */
@@ -180,26 +140,23 @@
 
 /* Manager's Mark neon glow effects */
 @utility glow-red {
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000;
+  box-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #ff0000;
 }
 
 @utility glow-red-intense {
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 40px #FF0000;
+  box-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #ff0000,
+    0 0 40px #ff0000;
 }
 
 @layer utilities {
   :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
@@ -244,13 +201,13 @@
 
 .cm-editor,
 .cm-gutters {
-  @apply bg-background! dark:bg-zinc-800! outline-hidden! selection:bg-zinc-900!;
+  @apply bg-zinc-800! outline-hidden! selection:bg-zinc-900!;
 }
 
 .ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground,
 .ͼo.cm-selectionBackground,
 .ͼo.cm-content::selection {
-  @apply bg-zinc-200! dark:bg-zinc-900!;
+  @apply bg-zinc-900!;
 }
 
 .cm-activeLine,
@@ -275,7 +232,7 @@
 }
 
 .suggestion-highlight {
-  @apply bg-blue-200 hover:bg-blue-300 dark:hover:bg-blue-400/50 dark:text-blue-50 dark:bg-blue-500/40;
+  @apply bg-blue-500/40 text-blue-50 hover:bg-blue-400/50;
 }
 
 /* minimal scrollbar styling */

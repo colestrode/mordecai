@@ -2,6 +2,8 @@ Here is a brand style guide derived from the "Manager's Mark" image, structured 
 
 As a Sr. UX Designer, my assessment of this mark is that it establishes a very specific tone: intense, industrial, authoritative, and high-contrast. It suggests a digital interface overlaid on a brutal, physical reality. The style guide below aims to translate that intensity into usable UI components without overwhelming the user.
 
+**Note:** This application uses a single dark theme exclusively. There is no light mode variant.
+
 ---
 
 # Brand Style Guide: The Manager's Mark
@@ -16,7 +18,7 @@ The primary logo consists of a heavily cracked, concrete-textured capital letter
 
 * **Usage:** This mark is intended for high-impact areas: splash screens, headers, and major branding moments.
 * **Clearance:** Always maintain minimum clear space around the logo equivalent to 50% of the hexagon's height. Nothing should crowd the glow.
-* **Backgrounds:** The logo is designed exclusively for dark backgrounds (preferably pure black) to maximize the neon effect. Do not place on light or noisy backgrounds.
+* **Backgrounds:** The logo is designed for our dark background (Void Black) to maximize the neon effect. The application exclusively uses dark mode, ensuring optimal logo presentation.
 
 ### 1.2 Iconography Concepts
 
@@ -25,9 +27,9 @@ When translating the brand into smaller UI elements where the full texture won't
 * **Containers:** The hexagon is our primary container shape for avatars, badges, or critical alerts.
 * **Standard Icons:** UI icons (settings, menu, etc.) should be mono-weight, angular, and utilize the System Red color. avoid rounded corners; prioritize sharp angles.
 
-## 2.0 Colors
+## 2.0 Colors (Dark Theme Only)
 
-Our palette is stark and high-contrast. It relies heavily on pure black to make our primary "System Red" feel incandescent. The greys are pulled directly from the stone texture of the mark.
+Our palette is stark and high-contrast. It relies heavily on pure black to make our primary "System Red" feel incandescent. The greys are pulled directly from the stone texture of the mark. This dark palette is the only theme used in the application - there is no light mode variant.
 
 | Color | Name | Hex | RGB | CMYK | Usage |
 | --- | --- | --- | --- | --- | --- |
